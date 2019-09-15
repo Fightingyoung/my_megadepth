@@ -33,11 +33,12 @@ You should see an inverse depth prediction saved as demo.png from an original ph
    cd pspnet-pytorch-master/libs
    protoc --python_out=. caffe.proto
 ```
-Generate the .pth file
+- Generate the .pth file
 ```bash
    cd pspnet-pytorch-master
    python convert.py -c config/ade20k. yaml
 ```
+- Cover up the sky
 ```bash
    cd pspnet-pytorch-master
    python demo.py -c config/ade20k. yaml -i demo. ipg
