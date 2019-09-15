@@ -24,9 +24,25 @@ This is a code of the algorithm described in "MegaDepth: Learning Single-View De
 * In python file "models/HG_model.py", in init function, change to "model_parameters = self.load_network(model, 'G', 'best_generalization')"
 * run demo code 
 ```bash
-    python demo.py
+    python demo.py -i demo sky_masked.jpg
 ```
-You should see an inverse depth prediction saved as demo.png from an original photo demo.jpg. If you want to use RGB maps for visualization, like the figures in our paper, you have to install/run semantic segmentation from https://github.com/kazuto1011/pspnet-pytorch trained on ADE20K to mask out sky, because inconsistent depth prediction of unmasked sky will not make RGB visualization resonable.
+You should see an inverse depth prediction saved as demo.png from an original photo demo.jpg. If you want to use RGB maps for visualization, like the figures in our paper, you have to install/run semantic segmentation by below code
+
+- Convert caffe.proto files to Python-API
+```bash
+   cd pspnet-pytorch-master/libs
+   protoc --python_out=. caffe.proto
+```
+Generate the .pth file
+```bash
+   cd pspnet-pytorch-master
+   python convert.py -c config/ade20k. yaml
+```
+```bash
+   cd pspnet-pytorch-master
+   python demo.py -c config/ade20k. yaml -i demo. ipg
+```
+
 
 
 #### Evaluation on the MegaDepth test splits:
