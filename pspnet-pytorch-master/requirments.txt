@@ -1,0 +1,4 @@
+click
+addict
+pydensecrf
+protobuf
